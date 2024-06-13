@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package com.proyecto.views;
+package com.humanTalent.gui;
 
 /**
  *
  * @author mateo
  */
-public class Empleados extends javax.swing.JPanel {
+public class Attendance extends javax.swing.JPanel {
 
     /**
      * Creates new form Principal
      */
-    public Empleados() {
+    public Attendance() {
         initComponents();
     }
 
@@ -28,7 +28,7 @@ public class Empleados extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
 
-        jLabel1.setText("Aqui se mostrara la lista de empleados.");
+        jLabel1.setText("Aqui se podra registrar la asistencia");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
