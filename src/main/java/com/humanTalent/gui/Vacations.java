@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package com.proyecto.views;
+package com.humanTalent.gui;
 
 /**
  *
  * @author mateo
  */
-public class Asistencias extends javax.swing.JPanel {
+public class Vacations extends javax.swing.JPanel {
 
     /**
      * Creates new form Principal
      */
-    public Asistencias() {
+    public Vacations() {
         initComponents();
     }
 
@@ -28,16 +28,16 @@ public class Asistencias extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
 
-        jLabel1.setText("Aqui se podra registrar la asistencia");
+        jLabel1.setText("Aqui se mostrara las fechas de vacaciones de los empleados");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(17, 17, 17)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(309, Short.MAX_VALUE))
+                .addContainerGap(316, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
