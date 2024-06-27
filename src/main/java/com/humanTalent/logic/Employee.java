@@ -11,7 +11,7 @@ public class Employee {
     private boolean status;
     private double salary;
 
-    public Employee(double salary, boolean status, WorkArea workArea, String phoneNumber, String dni, String lastName, String name) {
+    public Employee(String name,String lastName,String dni,String phoneNumber ,WorkArea workArea, boolean status,double salary   ) {
         this.salary = salary;
         this.status = status;
         this.workArea = workArea;
