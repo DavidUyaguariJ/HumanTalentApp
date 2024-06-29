@@ -174,10 +174,10 @@ public class Login extends javax.swing.JFrame {
                     this.setVisible(false);
                     Menu menu = new Menu();
                     menu.setVisible(true);     
-                }else {
-                    throw new RuntimeException("El usuario o la contraseña son Incorrectos");
                 }
-           }
+           }else if(!password.equals(emp.getDni())){
+                    throw new RuntimeException("La contraseña es Incorrecta");
+                }
        }catch(RuntimeException  e){
            javax.swing.JOptionPane.showMessageDialog(this, e.getMessage(), "Error de Login", javax.swing.JOptionPane.ERROR_MESSAGE);
        }
