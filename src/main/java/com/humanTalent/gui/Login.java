@@ -2,6 +2,8 @@
 
 package com.humanTalent.gui;
 
+import com.humanTalent.logic.Employee;
+import com.humanTalent.persistance.EmployeesList;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -10,8 +12,6 @@ import javax.swing.JOptionPane;
  * @author mateo
  */
 public class Login extends javax.swing.JFrame {
-    private static final String CORRECT_USERNAME = "admin";
-    private static final String CORRECT_PASSWORD = "password";
 
     /**
      * Creates new form Login
@@ -162,32 +162,27 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
        String username = jTextField1.getText();
-        String password = String.valueOf(jPasswordField1.getPassword());
-
-        if (username.equals(CORRECT_USERNAME) && password.equals(CORRECT_PASSWORD)) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Login exitoso, bienvenido " + username, "Login", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-            // Aquí puedes añadir el código para pasar al menú principal
-        } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", "Error de Login", javax.swing.JOptionPane.ERROR_MESSAGE);
-        } 
+       String password = String.valueOf(jPasswordField1.getPassword());
+       Employee emp= EmployeesList.findEmployeeByDni(username);
+       try{
+           if(emp == null){
+               throw new RuntimeException("El usuario es incorrecto");
+           }
+           if(username.equals(emp.getDni())&& password.equals(emp.getDni())){
+                int response = JOptionPane.showConfirmDialog(null, "Login exitoso, bienvenido " + emp.getName()+" "+emp.getLastName(), "Login", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                if (response == JOptionPane.OK_OPTION) {
+                    this.setVisible(false);
+                    Menu menu = new Menu();
+                    menu.setVisible(true);     
+                }else {
+                    throw new RuntimeException("El usuario o la contraseña son Incorrectos");
+                }
+           }
+       }catch(RuntimeException  e){
+           javax.swing.JOptionPane.showMessageDialog(this, e.getMessage(), "Error de Login", javax.swing.JOptionPane.ERROR_MESSAGE);
+       }
     }//GEN-LAST:event_jButton1MouseClicked
-   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-        String username = jTextField1.getText();
-        String password = new String(jPasswordField1.getPassword());
 
-        if (CORRECT_USERNAME.equals(username) && CORRECT_PASSWORD.equals(password)) {
-            // Hide the login window
-            this.setVisible(false);
-
-            // Create and show the Menu window
-            Menu menu = new Menu();
-            menu.setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", "Error de Autenticación", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-    
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
